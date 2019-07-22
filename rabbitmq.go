@@ -10,11 +10,11 @@ import (
 type (
 	// RabbitMQ rabbitmq connection
 	RabbitMQ struct {
-		URI        string        `json:"uri" desc:"Connection uri"`
-		Vhost      string        `json:"vhost" desc:"Vhost specifies the namespace of permissions, exchanges, queues and bindings on the server. Dial sets this to the path parsed from the URL."`
-		ChannelMax int           `json:"channelMax" desc:"0 max channels means 2^16 - 1"`
-		FrameSize  int           `json:"frameSize" desc:"0 max bytes means unlimited"`
-		Heartbeat  time.Duration `json:"heartbeat" desc:"less than 1s uses the server's interval"`
+		URI        string        `config:"uri" help:"Connection uri"`
+		Vhost      string        `config:"vhost" help:"Vhost specifies the namespace of permissions, exchanges, queues and bindings on the server. Dial sets this to the path parsed from the URL."`
+		ChannelMax int           `config:"channelMax" help:"0 max channels means 2^16 - 1"`
+		FrameSize  int           `config:"frameSize" help:"0 max bytes means unlimited"`
+		Heartbeat  time.Duration `config:"heartbeat" help:"less than 1s uses the server's interval"`
 
 		name             string
 		*amqp.Connection `json:"-"`
